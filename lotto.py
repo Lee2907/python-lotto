@@ -24,23 +24,6 @@ pick.grid(column=1,row=2)
 get_pick2 = tk.Entry(root, width = 14)
 get_pick2.grid(column=2,row=2)
 
-b1 = tk.Button(root, text = 1)
-b1.grid(column=0,row=2)
-
-b2 = tk.Button(root, text = 2)
-b2.grid(column=1,row=2)
-
-b3 = tk.Button(root, text = 3)
-b3.grid(column=2,row=2)
-
-b4 = tk.Button(root, text = 4)
-b4.grid(column=3,row=2)
-
-b5 = tk.Button(root, text = 5)
-b5.grid(column=4,row=2)
-
-b6 = tk.Button(root, text = 6)
-b6.grid(column=5,row=2)
 
 root.mainloop()
 

@@ -10,11 +10,6 @@ root.geometry("500x500")
 root.config(bg="yellow")
 
 number_input = tk.StringVar()
-max_len = 13
-def length():
-    s = number_input.set()
-    if len(s) > max_len:
-        number_input.set(s[:max_len])
 
 def callback(input):
     if input.isemail():
