@@ -2,10 +2,11 @@
 import tkinter as tk
 from tkinter import messagebox
 import rsaidnumber
+
 # initilializing tkinter
 root = tk.Tk()
 root.title("Gateway Lotto!")
-root.geometry("640x320")
+root.geometry("500x500")
 root.config(bg="yellow")
 
 number_input = tk.StringVar()
@@ -15,11 +16,20 @@ def length():
     if len(s) > max_len:
         number_input.set(s[:max_len])
 
+def callback(input):
+    if input.isemail():
+        print(input)
+        return True
+    elif input is "":
+        return True
+    else:
+        return False
+
 def verify():
     if get_id.get() < "03":
-        messagebox.showinfo("Notice","You are too young. Please try again in int(get_name.get() - 18) years.")
+        messagebox.showerror("Notice","You are too young. Please try again in int(get_name.get() - 18) years.")
     elif get_id.get() >= "03":
-        messagebox.showerror("Notice","Let's Play")
+        messagebox.showinfo("Notice","Let's Play!")
         root.destroy()
         import lotto
     elif get_id.get() == "":
@@ -40,7 +50,7 @@ address = tk.Label(root, text = "Address").grid(column=1,row=5)
 get_address = tk.Entry(root).grid(column=3,row=5)
 
 id_no = tk.Label(root, text = "ID Number").grid(column=1,row=6)
-get_id = tk.Entry(root, textvariable = number_input).grid(column=3,row=6)
+get_id = tk.Entry(root, textvariable = number_input).grid(column=3, row=6)
 
 play = tk.Button(root,text = "Play!", command=verify).grid(column=2,row=7)
 
