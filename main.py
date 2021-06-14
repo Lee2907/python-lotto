@@ -1,7 +1,7 @@
 # Lottery Machine - Lihle Buka
 import tkinter as tk
 from tkinter import messagebox
-import
+import rsaidnumber
 # initilializing tkinter
 root = tk.Tk()
 root.title("Gateway Lotto!")
