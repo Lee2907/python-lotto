@@ -1,9 +1,17 @@
 from tkinter import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 
 root = Tk()
 root.title("Let The Game Begin!")
 root.geometry("1365x768")
+
+style = ttk.Style(root)
+
+style.theme_names()
+current_theme = style.theme_use()
+
+style.theme_use("default")
 
 img = Image.open("lotto-bg.jpeg")
 render = ImageTk.PhotoImage(img)
@@ -33,12 +41,12 @@ get_pick3.grid(column=2,row=3)
 sets_make = Button(root, text = "Play!",width=10)
 sets_make.grid(column=1,row =4)
 
-def gen_num():
 
-    def popupmsg(msg):
+
+def popupmsg(msg):
         label = Label(root, text=msg, font=NORM_FONT)
         label.pack(side="top", fill="x", pady=10)
-        B1 = Button(root, text="Okay", command = lambda:root.destroy,gen_num)
+        B1 = Button(root, text="Okay", command = lambda:root.destroygen_num)
         B1.pack()
 
 root.mainloop()
