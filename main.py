@@ -42,16 +42,21 @@ def verify():
     now_date = datetime.timedelta(365.25)
     found = False
 try:
-    for x in range(len(get_id.get())):
-        if int(get_id.get()) >= int(id_number):
+    AttributeError
+    for x in range(len(str(get_id))):
+        if str(get_id.get()) >= int(id_number):
             found=True
             if found == True:
                 messagebox.showinfo("Notice","Let's Play.")
                 import mains
-            elif int(get_id.get()) < int(id_number):\
+            elif str(get_id.get()) < int(id_number):
                     messagebox.showwarning("Notice","You are too young to play.")
     else:
         root.destroy()
+except AttributeError:
+    import mains
+finally:
+    import fore_main
 
 play = tk.Button(root,text = "Play!").grid(column=2,row=7)
 
