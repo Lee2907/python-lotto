@@ -50,11 +50,9 @@ def verify():
             elif str(get_id.get()) < int(id_number):
                     messagebox.showwarning("Notice","You are too young to play.")
             else:
-                    root.destroy()
+                root.destroy()
     except AttributeError:
         import mains
-    finally:
-        import fore
 
 play = tk.Button(root,text = "Play!",font=font_stylize,command=verify).grid(column=2,row=7)
 

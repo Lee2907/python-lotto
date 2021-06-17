@@ -1,6 +1,5 @@
 from tkinter import *
 from playsound import playsound
-from PIL import Image, ImageTk
 
 root = Tk()
 root.title("Let The Game Begin!")
@@ -29,8 +28,6 @@ get_pick3.place(x=91,y=57)
 
 interface = Frame(root)
 interface.pack(side = RIGHT)
-
-
 
 button1 = Button(interface,width=8,text="1",command=listen)
 button1.place()
@@ -181,7 +178,7 @@ button49.place()
 
 def lotto_result():
         great = Toplevel()
-        great.geometry("1305x803")
+        great.geometry("1005x803")
         great.config(bg="yellow")
         B1 = Button(great, text="Claim Prize")
         B1.pack()
