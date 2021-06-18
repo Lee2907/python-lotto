@@ -1,9 +1,8 @@
 # Lottery Machine - Lihle Buka
 
 import tkinter as tk
-from tkinter import ttk
 from tkinter import messagebox
-import datetime
+import playsound
 import rsaidnumber
 from PIL import Image, ImageTk
 
@@ -38,22 +37,24 @@ get_address = tk.Entry(root).grid(column=3,row=5)
 id_no = tk.Label(root, text = "ID Number",font=font_stylize).grid(column=1,row=6)
 get_id = tk.Entry(root, textvariable = 13).grid(column=3, row=6)
 
+my_text = open("list.txt","w")
+
 def verify():
     try:
-        AttributeError
         for x in range(len(str(get_id))):
-            if str(get_id.get()) >= int(id_number):
+            if str(get_id.get()) >= int(id_number.valid):
                 found=True
             if found == True:
                 messagebox.showinfo("Notice","Let's Play.")
                 import mains
-            elif str(get_id.get()) < int(id_number):
+            elif str(get_id.get()) < int(id_number.valid):
                     messagebox.showwarning("Notice","You are too young to play.")
             else:
-                root.destroy()
+                messagebox.showerror("Notice","Invaliid ID Number. Try again.")
     except AttributeError:
         import mains
 
 play = tk.Button(root,text = "Play!",font=font_stylize,command=verify).grid(column=2,row=7)
 
+my_text.close()
 root.mainloop()
