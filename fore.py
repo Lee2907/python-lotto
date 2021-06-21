@@ -2,10 +2,9 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import smtplib, ssl
-import requests
 
 root = Tk()
-root.title("Claim Form.")
+root.title("Claim Form")
 root.geometry("612x459")
 root.config(bg="yellow")
 
@@ -16,11 +15,6 @@ img = Label(root, image=render)
 img.image = render
 img.place(x=0,y=0)
 
-api_key = "5f5691e2d32d65dbfe9f9300"
-username = "kamvelihle.buka2907@gmail.com"
-
-r= requests.get("https://v6.exchangerate-api.com/v6/5f5691e2d32d65dbfe9f9300/latest/USD")
-print(r.json())
 
 bank_acc = Label(root, text = "Bank Account Number")
 bank_acc.grid(column=1,row=2)
@@ -45,7 +39,7 @@ choose_bank.grid(column=1,row=5)
 def claim_prize():
     messagebox.showinfo("Notice","We have submitted your claim. Please check your e-mail for further instructions.")
     root.withdraw()
-    import main
+    import start
 
 def mail_the_prize():
     port = 587
@@ -63,7 +57,15 @@ Subject: Hi there.
 The Lottery Board has processed your claim and is proud to announce that your prize has been allocated. Please check your inbox for an e-mail detailing the provision of your prize."""
     server.sendmail(sender_email, receiver_email, message)
 
-claim = Button(root, text = "Claim Away!", width=10,command=lambda claim_prize:mail_the_prize)
+def exchange():
+    try:
+        messagebox.askyesno("Notice","This is just to notify you that you have picked the currency converter. Are you not from South Africa?")
+        TypeError
+        root.withdraw()
+    finally:
+        import currency
+
+claim = Button(root, text = "Claim Away!", width=10, command=lambda :[claim_prize,mail_the_prize,exchange])
 claim.grid(column=1,row=6)
 
 root.mainloop()

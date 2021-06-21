@@ -28,8 +28,8 @@ detail = tk.Label(root, text = "Player Details",font=font_stylize).grid(column =
 name = tk.Label(root, text = "Name",font=font_stylize).grid(column = 1,row = 3)
 get_name = tk.Entry(root).grid(column=3,row=3)
 
-mail = tk.Label(root, text = "Surname",font=font_stylize).grid(column=1,row=4)
-get_mail = tk.Entry(root).grid(column=3,row=4)
+surname = tk.Label(root, text = "Surname",font=font_stylize).grid(column=1,row=4)
+get_surname = tk.Entry(root).grid(column=3,row=4)
 
 address = tk.Label(root, text = "E-mail Address",font=font_stylize).grid(column=1,row=5)
 get_address = tk.Entry(root).grid(column=3,row=5)
@@ -39,6 +39,17 @@ get_id = tk.Entry(root, textvariable = 13).grid(column=3, row=6)
 
 my_text = open("list.txt","w")
 
+def mail_valid():
+        person = get_name.get()
+        email = str(get_address.get())
+
+        if ".com" in get_address.get():
+            messagebox.showinfo("Congrats", "Thanks for taking the first step. And have a good time.")
+
+        else:
+            messagebox.showinfo("Notice","Our system noticed an error in the e-mail address you provided. Please enter a more accurate one.")
+            get_address.delete(0)
+
 def verify():
     try:
         for x in range(len(str(get_id))):
@@ -46,13 +57,14 @@ def verify():
                 found=True
             if found == True:
                 messagebox.showinfo("Notice","Let's Play.")
-                import mains
+                import lottoplay
             elif str(get_id.get()) < int(id_number.valid):
                     messagebox.showwarning("Notice","You are too young to play.")
             else:
                 messagebox.showerror("Notice","Invaliid ID Number. Try again.")
     except AttributeError:
-        import mains
+        import lottoplay
+
 
 play = tk.Button(root,text = "Play!",font=font_stylize,command=verify).grid(column=2,row=7)
 
