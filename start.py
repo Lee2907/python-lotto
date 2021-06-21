@@ -20,9 +20,10 @@ img.image = render
 img.place(x=0,y=0)
 
 font_stylize = ("Verdana",11)
+listen = playsound("click.mp3")
 
 id_number = rsaidnumber.parse('0207296224083')
-
+# structuring the form
 detail = tk.Label(root, text = "Player Details",font=font_stylize).grid(column = 2,row = 1)
 
 name = tk.Label(root, text = "Name",font=font_stylize).grid(column = 1,row = 3)
@@ -38,18 +39,16 @@ id_no = tk.Label(root, text = "ID Number",font=font_stylize).grid(column=1,row=6
 get_id = tk.Entry(root, textvariable = 13).grid(column=3, row=6)
 
 my_text = open("list.txt","w")
-
+# the implementation of functions
 def mail_valid():
         person = get_name.get()
         email = str(get_address.get())
 
         if ".com" in get_address.get():
             messagebox.showinfo("Congrats", "Thanks for taking the first step. And have a good time.")
-
         else:
             messagebox.showinfo("Notice","Our system noticed an error in the e-mail address you provided. Please enter a more accurate one.")
             get_address.delete(0)
-
 def verify():
     try:
         for x in range(len(str(get_id))):
@@ -64,9 +63,8 @@ def verify():
                 messagebox.showerror("Notice","Invaliid ID Number. Try again.")
     except AttributeError:
         import lottoplay
-
-
+#the button
 play = tk.Button(root,text = "Play!",font=font_stylize,command=verify).grid(column=2,row=7)
 
-my_text.close()
+#starting the form
 root.mainloop()
