@@ -30,7 +30,7 @@ e1 = Entry(root)
 e1. grid(row=4, column=0)
 
 
-btn_active = Button(root, text = "Convert")
+btn_active = Button(root, text = "Convert",command=r)
 btn_active.grid(row=3, column=2)
 
 l2 = Label(root,text="Current Currency")
