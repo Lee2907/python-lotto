@@ -28,6 +28,12 @@ acc_detail.grid(column=1,row=3)
 get_det = Entry(root, width = 15)
 get_det.grid(column=2,row=3)
 
+addition = Label(root, text = "CVV")
+addition.grid(column=1,row=4)
+
+get_add = Entry(root, width = 15)
+get_add.grid(column=2,row=4)
+
 banks = ['Capitec', 'ABSA', 'FNB','Standard Bank','African Bank']
 variable = StringVar(root)
 variable.set(banks[0])
@@ -35,37 +41,19 @@ variable.set(banks[0])
 choose_bank = OptionMenu(root,variable,*banks)
 choose_bank.config(height=1,width=6,font=('Arial',14))
 choose_bank.grid(column=1,row=5)
-# implementating the functions
+# implementing the functions
 def claim_prize():
     messagebox.showinfo("Notice","We have submitted your claim. Please check your e-mail for further instructions.")
     root.withdraw()
-    import start
-
-def mail_the_prize():
-    port = 587
-    smt_server = "smtp.gmail.com"
-    server = smtplib.SMTP(smt_server,port)
-    context = ssl.create_default_context()
-    server.starttls(context=context)
-    sender_email = "kamvelihle.buka2907@gmail.com"
-    receiver_email = "kamvelihle.buka2907@gmail.com"
-    password = input("Type your password and press enter:")
-    server.login(sender_email, password)
-    message = """\
-Subject: Hi there.
-
-The Lottery Board has processed your claim and is proud to announce that your prize has been allocated. Please check your inbox for an e-mail detailing the provision of your prize."""
-    server.sendmail(sender_email, receiver_email, message)
-
+    import mail
 def exchange():
-    try:
-        messagebox.askyesno("Notice","This is just to notify you that you have picked the currency converter. Are you not from South Africa?")
-        TypeError
+        messagebox.showinfo("Notice","This is just to notify you that you have picked the currency converter, which means that you're a foreign national.")
         root.withdraw()
-    finally:
         import currency
 # the button
-claim = Button(root, text = "Claim Away!", width=10, command=lambda :[claim_prize,mail_the_prize,exchange])
+claim = Button(root, text = "Claim Away!", width=10, command=claim_prize)
+change_curr = Button(root, text = "Currency Converter",width=13,command=exchange)
 claim.grid(column=1,row=6)
+change_curr.grid(column=2,row=6)
 #starting the app
 root.mainloop()
