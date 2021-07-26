@@ -6,7 +6,8 @@ import requests
 
 root = Tk()
 root.title("Currency Converter")
-root.geometry("1200x1240")
+root.geometry("1200x900")
+root.config(bg="orange2")
 
 
 font_stylize = ("Verdana",11)
