@@ -170,9 +170,9 @@ class lotto_play:
             messagebox.showerror("Error", "You can only choose one number")
 
     def play(self):
-        self.matched = 0
-        self.matched2 = 0
-        self.matched3 = 0
+        self.match = 0
+        self.match2 = 0
+        self.match3 = 0
         winnings1 = 0
         winnings2 = 0
         winnings3 = 0
@@ -184,50 +184,50 @@ class lotto_play:
         matching3 = set(self.number3).intersection(set(random_list))
         for number in self.number1:
             if number in random_list:
-                self.matched += 1
-            if self.matched == 2:
+                self.match += 1
+            if self.match == 2:
                 winnings1 = prizes[2]
-            elif self.matched == 3:
+            elif self.match == 3:
                 winnings1 = prizes[3]
-            elif self.matched == 4:
+            elif self.match == 4:
                 winnings1 = prizes[4]
-            elif self.matched == 5:
+            elif self.match == 5:
                 winnings1 = prizes[5]
-            elif self.matched == 6:
+            elif self.match == 6:
                 winnings1 = prizes[6]
         else:
-            messagebox.showerror("Matches", "Matches in set one: " + str(self.matched) + "\nwinnings: " + "R" + str(winnings1) +
+            messagebox.showerror("Matches", "Matches in set one: " + str(self.match) + "\nwinnings: " + "R" + str(winnings1) +
                                  "\nMatching number: " + str(matching1))
 
         for number in self.number2:
             if number in random_list:
-                self.matched2 += 1
-            if self.matched2 == 2:
+                self.match2 += 1
+            if self.match2 == 2:
                 winnings2 = prizes[2]
-            elif self.matched2 == 3:
+            elif self.match2 == 3:
                 winnings2 = prizes[3]
-            elif self.matched2 == 4:
+            elif self.match2 == 4:
                 winnings2 = prizes[4]
-            elif self.matched2 == 5:
+            elif self.match2 == 5:
                 winnings2 = prizes[5]
-            elif self.matched2 == 6:
+            elif self.match2 == 6:
                 winnings2 = prizes[6]
         else:
-            messagebox.showerror("Matches", "Matches in set one: " + str(self.matched2) + "\nwinnings: " +
+            messagebox.showerror("Matches", "Matches in set one: " + str(self.match2) + "\nwinnings: " +
                                  "R" + str(winnings2) + "\nMatching number: " + str(matching2))
 
         for number in self.number3:
             if number in random_list:
-                self.matched3 += 1
-            if self.matched3 == 2:
+                self.match3 += 1
+            if self.match3 == 2:
                 winnings3 = prizes[2]
-            elif self.matched3 == 3:
+            elif self.match3 == 3:
                 winnings3 = prizes[3]
-            elif self.matched3 == 4:
+            elif self.match3 == 4:
                 winnings3 = prizes[4]
-            elif self.matched3 == 5:
+            elif self.match3 == 5:
                 winnings3 = prizes[5]
-            elif self.matched3 == 6:
+            elif self.match3 == 6:
                 winnings3 = prizes[6]
         else:
             messagebox.showerror("Matches", "Matches in set one: " + str(self.matched3) + "\nwinnings: " +
